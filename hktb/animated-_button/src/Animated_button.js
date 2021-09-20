@@ -39,6 +39,7 @@ export class Animated_button extends LitElement {
         color: var(--animatedbuttonBackgroundColor);
         background-color: transparent;
         text-decoration: none;
+        outline: 0;
       }
 
       button:disabled {
