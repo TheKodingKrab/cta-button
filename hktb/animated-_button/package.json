@@ -8,7 +8,7 @@
   "module": "index.js",
   "scripts": {
     "analyze": "cem analyze --litelement",
-    "start": "web-dev-server"
+    "start": "web-dev-server --mode development"
   },
   "dependencies": {
     "lit": "^2.0.0-rc.4"
