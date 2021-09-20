@@ -130,7 +130,7 @@ export class Animated_button extends LitElement {
         <button .disabled="${this.buttonState}">${this.title}</button>
       </a>
       <br />
-      <label for="disableCheck">Check to disable button</label>
+      <label for="disableCheck">Disable button</label>
       <input
         id="disableCheck"
         type="checkbox"
