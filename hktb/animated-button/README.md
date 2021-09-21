@@ -1,21 +1,21 @@
-# \<animated-_button>
+# \<animated-button>
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
 ## Installation
 
 ```bash
-npm i animated-_button
+npm i animated-button
 ```
 
 ## Usage
 
 ```html
 <script type="module">
-  import 'animated-_button/animated-_button.js';
+  import 'animated-button/animated-button.js';
 </script>
 
-<animated-_button></animated-_button>
+<animated-button></animated-button>
 ```
 
 
