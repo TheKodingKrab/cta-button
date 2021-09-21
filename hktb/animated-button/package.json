@@ -1,8 +1,8 @@
 {
-  "name": "animated-_button",
-  "description": "Webcomponent animated-_button following open-wc recommendations",
+  "name": "animated-button",
+  "description": "Webcomponent animated-button following open-wc recommendations",
   "license": "MIT",
-  "author": "animated-_button",
+  "author": "animated-button",
   "version": "0.0.0",
   "main": "index.js",
   "module": "index.js",
