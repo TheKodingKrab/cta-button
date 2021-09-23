@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body {
+        background: #f1f3f3;
+      }
+    </style>
+    <script>
+      // => Shorthand for Function: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions;
+      window.onload = function () {
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox
+        // https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget
+        document.querySelector('#box').addEventListener('change', (e) => {
+          if (e.target && e.target.checked) {
+            document.querySelector('cta-button').disabled = true;
+          }
+          else {
+            document.querySelector('cta-button').disabled = false;
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Do I Understand This Assignment?</h2>
+    <!-- Recommended to put out here-->
+    <input id="box" type="checkbox">Disable Status</input>
+    <br />
+    <cta-button></cta-button>
+    <script type="module">
+      import '../cta-button.js';
+    </script>
+  </body>
+</html>
