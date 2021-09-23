@@ -1,4 +1,7 @@
 import { html, css, LitElement } from 'lit';
+import "@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js";
+import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
+
 
 export class Animated_button extends LitElement {
   static get styles() {
@@ -79,6 +82,7 @@ export class Animated_button extends LitElement {
       link: { type: String },
       editMode: { type: Boolean },
       buttonState: { type: Boolean },
+      icon: { type: String },
     };
   }
 
@@ -92,6 +96,7 @@ export class Animated_button extends LitElement {
     this.link = 'https://www.headspace.com/';
     this.buttonState = false;
     this.accentColor = 'salmon';
+    this.icon = 'hardware:headset';
     if (this.querySelector('a')) {
       this.link = this.querySelector('a').getAttribute('href');
       this.title = this.querySelector('button').value;
@@ -128,7 +133,10 @@ export class Animated_button extends LitElement {
         @click=${this._clickButton}
         ?contenteditable="${this.editMode}"
       >
-        <button .disabled="${this.buttonState}">${this.title}</button>
+        <button .disabled="${this.buttonState}">
+          <simple-icon-lite icon="${this.icon}"></simple-icon-lite>
+          ${this.title}
+        </button>
       </a>
       <br />
       <label for="disableCheck">Disable button</label>
