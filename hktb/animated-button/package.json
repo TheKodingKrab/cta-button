@@ -8,15 +8,23 @@
   "module": "index.js",
   "scripts": {
     "analyze": "cem analyze --litelement",
-    "start": "web-dev-server --mode development"
+    "start": "web-dev-server --mode development",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@lrnwebcomponents/simple-icon": "^4.0.0",
     "lit": "^2.0.0-rc.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.5",
     "@custom-elements-manifest/analyzer": "^0.4.17",
-    "@web/dev-server": "^0.1.22"
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/web-components": "^6.3.8",
+    "@web/dev-server": "^0.1.22",
+    "babel-loader": "^8.2.2"
   },
   "customElements": "custom-elements.json"
 }
