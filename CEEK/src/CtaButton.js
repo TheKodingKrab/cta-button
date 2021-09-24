@@ -15,6 +15,12 @@ export class CtaButton extends LitElement {
         --ctabuttonDisabledBackgroundColor: grey;
         --ctabuttonFontFamily: 'Times New Roman', sans-serif;
       }
+      :host([disabled]) {
+        pointer-events: none;
+        color: var(--ctabuttonColor);
+        background-color: var(--ctabuttonDisabledBackgroundColor);
+        cursor: not-allowed;
+      }
       .assignment {
         background-color: var(--ctabuttonBackgroundColor: white;);
         color: var(--ctabuttonColor);
@@ -72,9 +78,7 @@ export class CtaButton extends LitElement {
         rel="noopener noreferrer"
       >
         <button class="assignment" ?disabled="${this.disabled}">
-          <simple-icon-lite icon="${this.iconRight}"></simple-icon-lite> ${this
-            .title}
-          <simple-icon-lite icon="${this.iconLeft}"></simple-icon-lite>
+          <simple-icon-lite icon="${this.iconRight}"> </simple-icon-lite> ${this.title} <simple-icon-lite icon="${this.iconLeft}"></simple-icon-lite>
         </button>
       </a>
     `;
