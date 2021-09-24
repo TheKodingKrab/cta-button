@@ -14,7 +14,7 @@ Was able to push and commit initally but not now, why?
 export class CtaButton extends LitElement {
   static get styles() {
     return css`
-    /*
+      /*
     Want to make button look better: what stylistic choice to make? 
     How to add effects to the button? (Fireworks, confetti, etc.)
     */
@@ -28,22 +28,28 @@ export class CtaButton extends LitElement {
         --ctabuttonDisabledBackgroundColor: grey;
         --ctabuttonFontFamily: 'Times New Roman', sans-serif;
       }
+      <<<<<<< HEAD
       /*
       :host([disabled]) prevents the icons from being clicked as a link 
       Solved an issue where when disabled the icons would link to site when clicked
       */
+=======
+>>>>>>> c41d326b880cf8144def8f8b19356c62f668b7f3
       :host([disabled]) {
         pointer-events: none;
         color: var(--ctabuttonColor);
         background-color: var(--ctabuttonDisabledBackgroundColor);
         cursor: not-allowed;
       }
+      <<<<<<< HEAD
       /* 
       Why is this giving me an error? 
       Thought it was syntax error but comparsions with coltons code show no discrepancies 
       At least none that I saw (Could have missed something?)
       Again: how can we get more states/effects on this button? 
       */
+=======
+>>>>>>> c41d326b880cf8144def8f8b19356c62f668b7f3
       .assignment {
         background-color: var(--ctabuttonBackgroundColor: white;);
         color: var(--ctabuttonColor);
@@ -95,8 +101,8 @@ export class CtaButton extends LitElement {
     this.iconLeft = 'hardware:keyboard-arrow-left';
     this.iconRight = 'hardware:keyboard-arrow-right';
   }
- // Why did colton comment this out? Do we even need this? 
- // Still Yet to Answer: 
+  // Why did colton comment this out? Do we even need this?
+  // Still Yet to Answer:
   // _navigateToLink() {
   //   // https://developer.mozilla.org/en-US/docs/Web/API/Window/open
   //   window.open(this.link, "_blank");
@@ -111,7 +117,7 @@ export class CtaButton extends LitElement {
         rel="noopener noreferrer"
       >
         <button class="assignment" ?disabled="${this.disabled}">
-          <simple-icon-lite icon="${this.iconRight}"></simple-icon-lite> ${this
+          <simple-icon-lite icon="${this.iconRight}"> </simple-icon-lite> ${this
             .title}
           <simple-icon-lite icon="${this.iconLeft}"></simple-icon-lite>
         </button>
