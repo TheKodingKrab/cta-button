@@ -4,11 +4,12 @@ import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 
 /*
 Other side notes/issues: 
-Can't get it to run with npm keep getting an error but yarn works fine, why? 
-GitHub Issue!!!! Cannot commit/push? 
-Don't really know and I'm too afraid I'll fuck up the groups repo so playing it safe
-Does this have to do with the branch we made from the main orgo? 
-Was able to push and commit initally but not now, why?  
+Create contrast and dark mode. (CSS needs to generate dark mode, how?)
+Find out how to do Sound on button click (MP3 button??) 
+Keyboard navigable (tab)  
+Storybook documentation (Thurs) 
+Tests?????
+Publish to NPM, we may go over this. 
 */
 
 export class CtaButton extends LitElement {
@@ -28,28 +29,35 @@ export class CtaButton extends LitElement {
         --ctabuttonDisabledBackgroundColor: grey;
         --ctabuttonFontFamily: 'Times New Roman', sans-serif;
       }
-      <<<<<<< HEAD
+
       /*
       :host([disabled]) prevents the icons from being clicked as a link 
       Solved an issue where when disabled the icons would link to site when clicked
       */
-=======
->>>>>>> c41d326b880cf8144def8f8b19356c62f668b7f3
+
       :host([disabled]) {
         pointer-events: none;
         color: var(--ctabuttonColor);
         background-color: var(--ctabuttonDisabledBackgroundColor);
         cursor: not-allowed;
       }
-      <<<<<<< HEAD
+
+      :host([darkMode]) {
+        --ctabuttonBackgroundColor: white;
+        --ctabuttonColor: black;
+      }
+
+      :host([darkMode]:active) {
+        --ctabuttonBackgroundColor: #c4acac;
+      }
+
       /* 
       Why is this giving me an error? 
       Thought it was syntax error but comparsions with coltons code show no discrepancies 
       At least none that I saw (Could have missed something?)
       Again: how can we get more states/effects on this button? 
       */
-=======
->>>>>>> c41d326b880cf8144def8f8b19356c62f668b7f3
+
       .assignment {
         background-color: var(--ctabuttonBackgroundColor: white;);
         color: var(--ctabuttonColor);
@@ -89,17 +97,28 @@ export class CtaButton extends LitElement {
       link: { type: String },
       disabled: { type: Boolean, reflect: true },
       icon: { type: String },
+      /*
+      Makes the Button disabled
+      iconLeft: {type: Boolean, reflect: true},
+      iconRight: {type, Boolean, reflect: true}
+      */
     };
   }
 
+  // You want the default values in the contructor
+  // Your constructor works because it automatically reads in the default values themselves
+  // SET DEFAULT VALUES IN HERE
   constructor() {
     super();
     this.title = 'Click Here!';
     this.link =
-      'https://me.me/i/yes-neiniegerierator-ie-yes-i-did-it-victory-baby-861706f5aa474036a024011734c5a374';
+      'https://imgflip.com/memegenerator/232844223/Soyboy-Vs-Yes-Chad';
     this.disabled = false;
     this.iconLeft = 'hardware:keyboard-arrow-left';
     this.iconRight = 'hardware:keyboard-arrow-right';
+    /*
+    
+    */
   }
   // Why did colton comment this out? Do we even need this?
   // Still Yet to Answer:
