@@ -42,4 +42,5 @@ Something we would like to do with out button is add one of their interesting st
       :host([gradient]) .--innerButton{
             background: linear-gradient(232deg, #FF5733, #ff4e4ea3);
       }
+```
 <br>
