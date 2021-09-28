@@ -12,7 +12,7 @@ We learned how to edit the demo files for better tests. Our only work had previo
 Next we will try to fix our naming convenion issues. The underscore was a typo that has created many problems. We hope to resovle this issue(s) timely. We would also like to try to edit the style of the button to look a little more like the one we based it off of.
 <br>
 <br>
-<b>Work (9/23)</b>
+<b>Class Work (9/23)</b>
 <br>
 Today, we worked on adding an icon to our button. Hannah followed along with the demo and updated the repo with icon functionality. Taylor worked on storybook funcitonality and adding the necessary files for that. 
 <br>
