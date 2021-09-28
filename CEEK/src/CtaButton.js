@@ -20,6 +20,9 @@ export class CtaButton extends LitElement {
         color: var(--ctabuttonColor);
         cursor: not-allowed;
       }
+      :host([perspective]) {
+        
+      }
       .assignment {
         background-color: var(--ctabuttonBackgroundColor: white;);
         color: var(--ctabuttonColor);
@@ -78,7 +81,7 @@ export class CtaButton extends LitElement {
         tabindex="-1"
         rel="noopener noreferrer"
       >
-        <button class="assignment" ?disabled="${this.disabled}">
+        <button perspective class="assignment" ?disabled="${this.disabled}">
           <simple-icon-lite icon="${this.iconright}"> </simple-icon-lite> ${this.title} <simple-icon-lite icon="${this.iconleft}"></simple-icon-lite>
         </button>
       </a>
