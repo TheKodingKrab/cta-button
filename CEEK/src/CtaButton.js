@@ -66,8 +66,8 @@ export class CtaButton extends LitElement {
   }
 
   // _navigateToLink() {
-  //   // https://developer.mozilla.org/en-US/docs/Web/API/Window/open
-  //   window.open(this.link, "_blank");
+  //  https://developer.mozilla.org/en-US/docs/Web/API/Window/open
+  //  window.open(this.link, "_blank");
   // }
 
   render() {

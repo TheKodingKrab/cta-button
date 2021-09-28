@@ -16,3 +16,10 @@ Try and use different elements from buttons and put them into our own button
 
 Meetings:
 Thursdays after class, option to meet on Zoom
+
+
+
+
+Thursday: 
+Added Icon functionallity 
+Having issues with Icons 
