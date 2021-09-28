@@ -18,7 +18,6 @@ export class CtaButton extends LitElement {
       :host([disabled]) {
         pointer-events: none;
         color: var(--ctabuttonColor);
-        background-color: var(--ctabuttonDisabledBackgroundColor);
         cursor: not-allowed;
       }
       .assignment {
@@ -51,6 +50,8 @@ export class CtaButton extends LitElement {
       link: { type: String },
       disabled: { type: Boolean, reflect: true },
       icon: { type: String },
+      iconleft: { type: String},
+      iconright: { type: String},
     };
   }
 
@@ -58,10 +59,10 @@ export class CtaButton extends LitElement {
     super();
     this.title = 'Click Here!';
     this.link =
-      'https://me.me/i/yes-neiniegerierator-ie-yes-i-did-it-victory-baby-861706f5aa474036a024011734c5a374';
+      'https://memegenerator.net/instance/85545491/yes-i-did-it-baby-yes-i-did-it';
     this.disabled = false;
-    this.iconLeft = 'hardware:keyboard-arrow-left';
-    this.iconRight = 'hardware:keyboard-arrow-right';
+    this.iconleft = 'hardware:keyboard-arrow-left';
+    this.iconright = 'hardware:keyboard-arrow-right';
   }
 
   // _navigateToLink() {
@@ -78,7 +79,7 @@ export class CtaButton extends LitElement {
         rel="noopener noreferrer"
       >
         <button class="assignment" ?disabled="${this.disabled}">
-          <simple-icon-lite icon="${this.iconRight}"> </simple-icon-lite> ${this.title} <simple-icon-lite icon="${this.iconLeft}"></simple-icon-lite>
+          <simple-icon-lite icon="${this.iconright}"> </simple-icon-lite> ${this.title} <simple-icon-lite icon="${this.iconleft}"></simple-icon-lite>
         </button>
       </a>
     `;
