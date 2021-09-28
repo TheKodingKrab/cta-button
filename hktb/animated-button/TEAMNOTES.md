@@ -34,7 +34,7 @@ Some of the differences are what made the buttons unique. They had their disable
 Something we would like to do with out button is add one of their interesting states. They included gradient and perspective which could really improve the animated-button.
 <br>
 <br>
-```
+~~~
       :host([perspective]){        
         transform: rotate3d(1, 0, 0, 30deg);
         box-shadow: 0px 5px 2px 0px darkgrey;
@@ -42,5 +42,5 @@ Something we would like to do with out button is add one of their interesting st
       :host([gradient]) .--innerButton{
             background: linear-gradient(232deg, #FF5733, #ff4e4ea3);
       }
-```
+~~~
 <br>
