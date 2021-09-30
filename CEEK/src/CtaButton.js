@@ -2,14 +2,6 @@ import { html, css, LitElement } from 'lit';
 import '@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js';
 import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 
-/*
-Questions: 
-Just in general does this look good? 
-How do I know dark mode works? 
-How to ensure keyboard functionality? 
-Contrast mode? 
-*/
-
 export class CtaButton extends LitElement {
   static get styles() {
     return css`
@@ -22,10 +14,6 @@ export class CtaButton extends LitElement {
         --ctabuttonActiveColor: yellow;
         --ctabuttonDisabledBackgroundColor: grey;
         --ctabuttonFontFamily: 'Times New Roman', sans-serif;
-
-        /* 
-        Have multiple 
-        */
       }
 
       :host([disabled]) {
@@ -52,6 +40,7 @@ export class CtaButton extends LitElement {
         text-decoration: none;
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
       }
+
       .assignment:hover {
         color: white;
         background-color: black;
@@ -59,26 +48,24 @@ export class CtaButton extends LitElement {
         text-decoration: none;
         cursor: pointer;
       }
+
       .assignment:focus {
         color: var(--ctabuttonBackgroundColor);
         background-color: green;
         text-decoration: none;
       }
+
       .assignment:active {
         background-color: var(--ctabuttonActiveBackgroundColor);
         color: var(--ctabuttonActiveColor);
       }
+
       .assignment:disabled {
         color: var(--ctabuttonColor);
         background-color: var(--ctabuttonDisabledBackgroundColor);
         cursor: not-allowed;
       }
-
-      /*
-      Do I even need to assignment for contrast here?? 
-      Need ti add to :host?? 
-      */
-
+      
       :host([dark]) .assignment {
         color: var(--ctabuttonBackgroundColor);
         background-color: var(--ctabuttonActiveBackgroundColor);
@@ -110,13 +97,6 @@ export class CtaButton extends LitElement {
     this.iconright = 'hardware:keyboard-arrow-right';
     this.sound = 'https://www.myinstants.com/media/sounds/what-da-dog-doin.mp3';
   }
-
-  // _navigateToLink() {
-  //  https://developer.mozilla.org/en-US/docs/Web/API/Window/open
-  //  window.open(this.link, "_blank");
-  // }
-
-  // eslint-disable-next-line class-methods-use-this
   __click() {
     this.__audio = new Audio();
     this.__audio.src = this.sound;
@@ -132,7 +112,7 @@ export class CtaButton extends LitElement {
         rel="noopener noreferrer"
         @click="${this.__click}"
       >
-        <button perspective class="assignment" ?disabled="${this.disabled}">
+        <button class="assignment" ?disabled="${this.disabled}">
           <simple-icon-lite icon="${this.iconright}"> </simple-icon-lite>
           ${this.title}
           <simple-icon-lite icon="${this.iconleft}"></simple-icon-lite>
