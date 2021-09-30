@@ -68,11 +68,6 @@ export class CtaButton extends LitElement {
     this.iconright = 'hardware:keyboard-arrow-right';
   }
 
-  // _navigateToLink() {
-  //  https://developer.mozilla.org/en-US/docs/Web/API/Window/open
-  //  window.open(this.link, "_blank");
-  // }
-
   render() {
     return html`
       <a
