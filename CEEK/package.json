@@ -16,6 +16,10 @@
     "storybook": "npm run analyze -- --exclude dist && web-dev-server -c .storybook/server.mjs",
     "storybook:build": "npm run analyze -- --exclude dist && build-storybook"
   },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@lrnwebcomponents/simple-icon": "^4.0.0",
     "lit": "^2.0.0-rc.4"

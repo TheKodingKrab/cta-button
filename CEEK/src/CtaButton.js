@@ -16,8 +16,6 @@ export class CtaButton extends LitElement {
         --ctabuttonDarkBackgroundColor: black;
         --ctabuttonDisabledBackgroundColor: grey;
         --ctabuttonFontFamily: 'Times New Roman', sans-serif;
-
-       
       }
 
       :host([disabled]) {
@@ -51,27 +49,32 @@ export class CtaButton extends LitElement {
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         
       }
-      .assignment:hover{
+
+      .assignment:hover {
         color: white;
         background-color: black;
         border-color: var(--ctabuttonBackgroundColor);
         text-decoration: none;
         cursor: pointer;
       }
+
       .assignment:focus {
         color: var(--ctabuttonBackgroundColor);
         background-color: green;
         text-decoration: none;
       }
+
       .assignment:active {
         background-color: var(--ctabuttonActiveBackgroundColor);
         color: var(--ctabuttonActiveColor);
       }
+
       .assignment:disabled {
         color: var(--ctabuttonColor);
         background-color: var(--ctabuttonDisabledBackgroundColor);
         cursor: not-allowed;
       }
+      
       :host([dark]) .assignment {
         color:var(--ctabuttonDarkColor);
         background-color: var(--ctabuttonDarkBackgroundColor);
@@ -129,7 +132,7 @@ export class CtaButton extends LitElement {
         rel="noopener noreferrer"
         @click="${this.__click}"
       >
-        <button perspective class="assignment" ?disabled="${this.disabled}">
+        <button class="assignment" ?disabled="${this.disabled}">
           <simple-icon-lite icon="${this.iconright}"> </simple-icon-lite>
 
           ${this.title}
