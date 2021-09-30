@@ -114,6 +114,7 @@ export class Animated_button extends LitElement {
       this.title = this.querySelector('button').value;
       this.innerHTML = null;
     }
+    this.sound = 'https://www.myinstants.com/media/sounds/windows-xp-error.mp3';
   }
 
   _clickButton(e) {
@@ -133,6 +134,12 @@ export class Animated_button extends LitElement {
     }
   }
 
+  __click() {
+    this.__audio = new Audio();
+    this.__audio.src = this.sound;
+    this.__audio.play();
+  }
+
   render() {
     return html`
       <a
@@ -142,22 +149,18 @@ export class Animated_button extends LitElement {
         rel="noopener"
         role="button"
         part="animated-button-link"
-        @click=${this._clickButton}
+        @click=${this._clickButton, this.__click} 
         ?contenteditable="${this.editMode}"
       >
         <button .disabled="${this.buttonState}">
-          <simple-icon-lite icon="${this.icon}"></simple-icon-lite>
+        ${!this.buttonState
+          ? html`<simple-icon-lite
+              icon="${this.icon}"
+            ></simple-icon-lite>`
+          : html``}
           ${this.title}
         </button>
       </a>
-      <br />
-      <label for="disableCheck">Disable button</label>
-      <input
-        id="disableCheck"
-        type="checkbox"
-        name="disableCheck"
-        @click=${this.__toggleDisabled}
-      />
     `;
   }
 }
