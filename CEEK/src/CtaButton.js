@@ -3,90 +3,85 @@ import '@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js';
 import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 
 /*
-Other side notes/issues: 
-Create contrast and dark mode. (CSS needs to generate dark mode, how?)
-Find out how to do Sound on button click (MP3 button??) 
-Keyboard navigable (tab)  
-Storybook documentation (Thurs) 
-Tests?????
-Publish to NPM, we may go over this. 
+Questions: 
+Just in general does this look good? 
+How do I know dark mode works? 
+How to ensure keyboard functionality? 
+Contrast mode? 
 */
 
 export class CtaButton extends LitElement {
   static get styles() {
     return css`
-      /*
-    Want to make button look better: what stylistic choice to make? 
-    How to add effects to the button? (Fireworks, confetti, etc.)
-    */
       :host {
         display: inline-block;
-        padding: 5px;
+        padding: 25px;
         --ctabuttonColor: black;
         --ctabuttonBackgroundColor: white;
-        --ctabuttonActiveBackgroundColor: red;
-        --ctabuttonActiveColor: white;
+        --ctabuttonActiveBackgroundColor: green;
+        --ctabuttonActiveColor: yellow;
         --ctabuttonDisabledBackgroundColor: grey;
         --ctabuttonFontFamily: 'Times New Roman', sans-serif;
-      }
 
-      /*
-      :host([disabled]) prevents the icons from being clicked as a link 
-      Solved an issue where when disabled the icons would link to site when clicked
-      */
+        /* 
+        Have multiple 
+        */
+      }
 
       :host([disabled]) {
         pointer-events: none;
         color: var(--ctabuttonColor);
-        background-color: var(--ctabuttonDisabledBackgroundColor);
         cursor: not-allowed;
       }
 
-      :host([darkMode]) {
+      :host([dark]) {
         --ctabuttonBackgroundColor: white;
-        --ctabuttonColor: black;
+        --ctabuttonTextColor: black;
       }
-
-      :host([darkMode]:active) {
-        --ctabuttonBackgroundColor: #c4acac;
-      }
-
-      /* 
-      Why is this giving me an error? 
-      Thought it was syntax error but comparsions with coltons code show no discrepancies 
-      At least none that I saw (Could have missed something?)
-      Again: how can we get more states/effects on this button? 
-      */
 
       .assignment {
-        background-color: var(--ctabuttonBackgroundColor: white;);
+        display: inline-block;
+        text-align: center;
         color: var(--ctabuttonColor);
+        background-color: var(--ctabuttonBackgroundColor);
         font-size: 25px;
+        padding: 0.5rem 2rem;
         font-family: var(--ctabuttonFontFamily);
         border-radius: 12px;
         border: 2px solid black;
         text-decoration: none;
-        padding: 6px;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
       }
-      /* 
-      Adds hover, focus, and active states to the button 
-      Possible to add other states that produce effects? 
-      */
-      .assignment:hover,
-      .assignment:focus,
+      .assignment:hover {
+        color: white;
+        background-color: black;
+        border-color: var(--ctabuttonBackgroundColor);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .assignment:focus {
+        color: var(--ctabuttonBackgroundColor);
+        background-color: green;
+        text-decoration: none;
+      }
       .assignment:active {
         background-color: var(--ctabuttonActiveBackgroundColor);
         color: var(--ctabuttonActiveColor);
       }
-      /*
-      Disables the button when box is clicked 
-      Any better way to disable it then clicking a checkbox? 
-      Maybe disable after link is clicked?
-      */
       .assignment:disabled {
         color: var(--ctabuttonColor);
         background-color: var(--ctabuttonDisabledBackgroundColor);
         cursor: not-allowed;
+      }
+
+      /*
+      Do I even need to assignment for contrast here?? 
+      Need ti add to :host?? 
+      */
+
+      :host([dark]) .assignment {
+        color: var(--ctabuttonBackgroundColor);
+        background-color: var(--ctabuttonActiveBackgroundColor);
       }
     `;
   }
@@ -97,35 +92,36 @@ export class CtaButton extends LitElement {
       link: { type: String },
       disabled: { type: Boolean, reflect: true },
       icon: { type: String },
-      /*
-      Makes the Button disabled
-      iconLeft: {type: Boolean, reflect: true},
-      iconRight: {type, Boolean, reflect: true}
-      */
+      iconleft: { type: String },
+      iconright: { type: String },
+      dark: { type: Boolean, reflect: true },
     };
   }
 
-  // You want the default values in the contructor
-  // Your constructor works because it automatically reads in the default values themselves
-  // SET DEFAULT VALUES IN HERE
   constructor() {
     super();
     this.title = 'Click Here!';
     this.link =
-      'https://imgflip.com/memegenerator/232844223/Soyboy-Vs-Yes-Chad';
+      'https://memegenerator.net/instance/85545491/yes-i-did-it-baby-yes-i-did-it';
     this.disabled = false;
-    this.iconLeft = 'hardware:keyboard-arrow-left';
-    this.iconRight = 'hardware:keyboard-arrow-right';
-    /*
-    
-    */
+    this.accentColor = 'red';
+    this.dark = false;
+    this.iconleft = 'hardware:keyboard-arrow-left';
+    this.iconright = 'hardware:keyboard-arrow-right';
+    this.sound = 'https://www.myinstants.com/media/sounds/what-da-dog-doin.mp3';
   }
-  // Why did colton comment this out? Do we even need this?
-  // Still Yet to Answer:
+
   // _navigateToLink() {
-  //   // https://developer.mozilla.org/en-US/docs/Web/API/Window/open
-  //   window.open(this.link, "_blank");
+  //  https://developer.mozilla.org/en-US/docs/Web/API/Window/open
+  //  window.open(this.link, "_blank");
   // }
+
+  // eslint-disable-next-line class-methods-use-this
+  __click() {
+    this.__audio = new Audio();
+    this.__audio.src = this.sound;
+    this.__audio.play();
+  }
 
   render() {
     return html`
@@ -134,11 +130,12 @@ export class CtaButton extends LitElement {
         target="_blank"
         tabindex="-1"
         rel="noopener noreferrer"
+        @click="${this.__click}"
       >
-        <button class="assignment" ?disabled="${this.disabled}">
-          <simple-icon-lite icon="${this.iconRight}"> </simple-icon-lite> ${this
-            .title}
-          <simple-icon-lite icon="${this.iconLeft}"></simple-icon-lite>
+        <button perspective class="assignment" ?disabled="${this.disabled}">
+          <simple-icon-lite icon="${this.iconright}"> </simple-icon-lite>
+          ${this.title}
+          <simple-icon-lite icon="${this.iconleft}"></simple-icon-lite>
         </button>
       </a>
     `;
