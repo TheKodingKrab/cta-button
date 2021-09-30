@@ -53,6 +53,10 @@
       "pre-commit": "lint-staged"
     }
   },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
