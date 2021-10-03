@@ -6,8 +6,8 @@ export default {
   component: 'cta-button',
   argTypes: {
     title: { control: 'text' },
-    counter: { control: 'number' },
-    textColor: { control: 'color' },
+    play: { control: 'boolean' },
+    icon: { control: 'text' },
   },
 };
 
@@ -30,15 +30,7 @@ CustomTitle.args = {
   title: 'My title',
 };
 
-export const CustomCounter = Template.bind({});
-CustomCounter.args = {
-  counter: 123456,
-};
-
 export const SlottedContent = Template.bind({});
 SlottedContent.args = {
   slot: html`<p>Slotted content</p>`,
-};
-SlottedContent.argTypes = {
-  slot: { table: { disable: true } },
 };
