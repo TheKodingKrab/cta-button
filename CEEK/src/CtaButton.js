@@ -33,6 +33,17 @@ export class CtaButton extends LitElement {
         --ctabuttonBackgroundColor: #ff00d4
         --ctabuttonTextColor: #66ff00
       }
+
+      :host([dark]) .assignment {
+        color:var(--ctabuttonDarkColor);
+        background-color: var(--ctabuttonDarkBackgroundColor);
+      }
+
+      :host([colorful]) .assignment {
+        color: #ff00d4;
+        background-color: #66ff00;
+        border-color: black;
+      }
       
       .assignment {
         display: inline-block;
@@ -74,16 +85,7 @@ export class CtaButton extends LitElement {
         cursor: not-allowed;
       }
       
-      :host([dark]) .assignment {
-        color:var(--ctabuttonDarkColor);
-        background-color: var(--ctabuttonDarkBackgroundColor);
-      }
-
-      :host([colorful]) .assignment {
-        color: #ff00d4;
-        background-color: #66ff00;
-        border-color: black;
-      }
+      
       
     `;
   }
@@ -106,7 +108,8 @@ export class CtaButton extends LitElement {
     this.title2 = 'to find out';
     this.title3 = 'what';
     this.title4 = 'the dog doin';
-    this.link = 'https://memegenerator.net/instance/85545491/yes-i-did-it-baby-yes-i-did-it';
+    this.link =
+      'https://memegenerator.net/instance/85545491/yes-i-did-it-baby-yes-i-did-it';
     this.disabled = false;
     this.accentColor = 'red';
     this.dark = false;
@@ -124,9 +127,17 @@ export class CtaButton extends LitElement {
 
   render() {
     return html`
-      <a href="${this.link}" target="_blank" tabindex="-1" rel="noopener noreferrer" @click="${this.__click}">
+      <a
+        href="${this.link}"
+        target="_blank"
+        tabindex="-1"
+        rel="noopener noreferrer"
+        @click="${this.__click}"
+      >
         <button class="assignment" ?disabled="${this.disabled}">
-          <simple-icon-lite icon="${this.iconright}"> </simple-icon-lite> ${this.title} <simple-icon-lite icon="${this.iconleft}"></simple-icon-lite>
+          <simple-icon-lite icon="${this.iconright}"> </simple-icon-lite> ${this
+            .title}
+          <simple-icon-lite icon="${this.iconleft}"></simple-icon-lite>
         </button>
       </a>
     `;
