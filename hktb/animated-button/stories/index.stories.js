@@ -11,7 +11,7 @@ export default {
   },
 };
 
-function Template({ title = 'Hello world', play = false, icon, slot }) {
+function Template({ title = 'Meditation & Moods', play = false, icon, slot }) {
   return html`
     <animated-button .title=${title} ?play=${play} .icon=${icon}>
       ${slot}
@@ -19,12 +19,12 @@ function Template({ title = 'Hello world', play = false, icon, slot }) {
   `;
 }
 
-export const Regular = Template.bind({});
+export const Headspace = Template.bind({});
 
 export const CustomTitle = Template.bind({});
 CustomTitle.args = {
-  title: 'My title',
-  icon: 'save',
+  title: 'Happy',
+  icon: 'social:mood',
   play: true,
 };
 
