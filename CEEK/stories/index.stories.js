@@ -6,19 +6,37 @@ export default {
   component: 'cta-button',
   argTypes: {
     title: { control: 'text' },
+    link: { control: 'text' },
     play: { control: 'boolean' },
     icon: { control: 'text' },
+    disabled: { control: 'boolean' },
+    dark: { control: 'boolean' },
+    colorTxt: { control: 'color' },
+    txt: { control: 'text' },
   },
 };
 
-function Template({ title = 'Hello world', counter = 5, textColor, slot }) {
+function Template({
+  title = 'Click Here',
+  colorTxt,
+  txt,
+  disabled = false,
+  dark = false,
+  play = false,
+  icon = '',
+  link = '',
+}) {
   return html`
     <cta-button
-      style="--cta-button-text-color: ${textColor || 'black'}"
       .title=${title}
-      .counter=${counter}
+      ?play=${play}
+      .icon=${icon}
+      .disabled=${disabled}
+      .dark=${dark}
+      .link=${link}
+      .colorTxt=${colorTxt}
+      .txt=${txt}
     >
-      ${slot}
     </cta-button>
   `;
 }
@@ -27,10 +45,7 @@ export const Regular = Template.bind({});
 
 export const CustomTitle = Template.bind({});
 CustomTitle.args = {
-  title: 'My title',
-};
-
-export const SlottedContent = Template.bind({});
-SlottedContent.args = {
-  slot: html`<p>Slotted content</p>`,
+  title: 'Custom Title',
+  icon: 'hardware:keyboard-arrow-left',
+  play: true,
 };
