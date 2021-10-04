@@ -42,3 +42,8 @@ Something we would like to do with out button is add one of their interesting st
             background: linear-gradient(232deg, #FF5733, #ff4e4ea3);
       }
 ```
+<b>Weekend Work (10/2 - 10/3)</b>
+<br>
+This weekend, we worked on the storybook of the button. We met on 10/3 to review and publish.
+<br>
+<br>
