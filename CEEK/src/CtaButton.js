@@ -109,13 +109,13 @@ export class CtaButton extends LitElement {
     this.title3 = 'what';
     this.title4 = 'the dog doin';
     this.link =
-      'https://memegenerator.net/instance/85545491/yes-i-did-it-baby-yes-i-did-it';
+      'https://www.psu.edu/';
     this.disabled = false;
     this.accentColor = 'red';
     this.dark = false;
     this.iconleft = 'hardware:keyboard-arrow-left';
     this.iconright = 'hardware:keyboard-arrow-right';
-    this.sound = 'https://www.myinstants.com/media/sounds/what-da-dog-doin.mp3';
+    //this.sound = 'https://www.myinstants.com/media/sounds/what-da-dog-doin.mp3';
   }
 
   // eslint-disable-next-line class-methods-use-this
